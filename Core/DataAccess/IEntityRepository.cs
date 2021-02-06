@@ -1,15 +1,19 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace DataAccess.Abstract
+//Namespace : 
+//Core katmanını bütün projelerimizde kullanabiliz
+//Bu katmanı bir çok projemizde tekrarı önlemek için yapıyoruz
+//Core katmanı diğer katmanları referans almaz
+namespace Core.DataAccess
 {
     //generic constraint : generic kısıt
     //class : referans tip
-    //IEntşty : IEntity olabilir veya IEntity implemente eden bir nesne olabilir
+    //IEntity : IEntity olabilir veya IEntity implemente eden bir nesne olabilir
     //new() : new'lenebiliri olmalı
-    public interface IEntityRepository<T> where T : class,IEntity, new()
+    public interface IEntityRepository<T> where T : class, IEntity, new()
     {
         //Manuel filtreleme yapmak için kullanacağımız Expression Delege yapısı 
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
