@@ -26,7 +26,6 @@ namespace DataAccess.Concrete.EntityFramework.Repository
                              };
                 return result.ToList();
             }
-            throw new System.NotImplementedException();
         }
     }
 }
