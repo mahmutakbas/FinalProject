@@ -6,5 +6,6 @@
         public static string ProductNameInvalid = "Ürün ismi geçersiz";
         public static string ProductsListed = "Ürün listelendi";
         public static string MaintenanceTime = "Sistem bakımda";
+        public static string UnitPriceInvalid="Geçersiz ürün fiyatı";
     }
 }

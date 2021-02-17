@@ -30,8 +30,8 @@ namespace WebAPI
             //Bir baðýmlýlýk görürsen onu al
             //IProductService görürsen  ProductManager arka planda ona ver
             //singleton içinde data tutmuyorsak yapmalýyýz.Örneðin sepet birbirine girebilir
-            services.AddSingleton<IProductService, ProductManager>();
-            services.AddSingleton<IProductDal, EfProductDal>();
+            //services.AddSingleton<IProductService, ProductManager>();
+            //services.AddSingleton<IProductDal, EfProductDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

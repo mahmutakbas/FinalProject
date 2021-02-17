@@ -1,11 +1,15 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 
 namespace Business.Concrete
 {
@@ -17,14 +21,20 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
+        //magic strings : mesajlarımızı standart yapmamız gerekiyor yoksa ileride patlayacaktır
 
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-            //business codes
-            if (product.ProductName.Length < 2)
-            {//magic strings : mesajlarımızı standart yapmamız gerekiyor yoksa ileride patlayacaktır
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }
+            //Biz bunları Attribute yapmamız gerekiyor
+            //ValidationTool.Validate(new ProductValidator(), product);
+            //Loglama
+            //cacheremove
+            //performance
+            //transaction
+            //yetkilendirme
+
+            //business code
             _productDal.Add(product);
             return new SuccessResult(Messages.ProductAdded);
         }
